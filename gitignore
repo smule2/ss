@@ -1,0 +1,14 @@
+# Ignore config.json
+config.json
+
+# Ignore the others directory
+others/
+
+# Ignore the logs directory
+logs/
+
+# Ignore nohup.out
+nohup.out
+pushNotifications_20MAY2024
+
+
