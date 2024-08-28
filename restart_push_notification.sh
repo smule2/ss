@@ -13,7 +13,18 @@ else
     # Kill the process
     kill -9 $PID
     echo "Service running on port $PORT has been killed."
+    # Add a small delay to ensure the port is fully released
+    sleep 3
 fi
 
 # Start the application in the background with nohup
-nohup ./pushNotifications &
+echo "Starting pushNotifications application..."
+nohup ./pushNotifications > nohup.out 2>&1 &
+
+# Check if the application started successfully
+sleep 3
+if pgrep -f "pushNotifications" > /dev/null; then
+    echo "pushNotifications application started successfully."
+else
+    echo "Failed to start pushNotifications application."
+fi
